@@ -6,13 +6,10 @@ When(/^I am on Appimation login page/) do
   end
   #find Try now button, by it's ID
   find(:id, "start_button")
-  puts "Try now button visible"
   #find Signup button, by it's ID
   find(:id, "signup-b")
-  puts "Signup button visible"
   #find Contact Us section
   find(:id, "cta")
-  puts "Contact Us section is visible"
   #find Name field in Contact Us section using xpath
   find(:xpath, '//*[@id="name"]')
   #find Email field in Contact Us section using xpath
@@ -22,5 +19,10 @@ When(/^I am on Appimation login page/) do
   #find Send button in Contact Us section using xpath
   find(:xpath, '//*[@id="contactus-button"]')
   #All feature sections in list using xpath
-  find(:xpath, "//h3[contains(text(), 'Chain requests with reusable data')]/parent::section")
+  #find(:xpath, "//h3[contains(text(), 'Chain requests with reusable data')]/parent::section")
+  
+  #all(:xpath, "//div[contains(@class, 'features-row')]/descendant::h3[contains(text(), 'Chain requests with reusable data')]")
+  all(:xpath, "//div[contains(@class, 'features-row')]/section").each do |el|
+    puts el
+  end
 end
