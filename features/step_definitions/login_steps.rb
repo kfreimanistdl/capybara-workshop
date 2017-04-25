@@ -1,5 +1,6 @@
-When(/^I am on Appimation login page/) do
+When(/^I am on Appimation home page/) do
   visit('/')
+<<<<<<< HEAD
   #finds image for container with specified text
   all(:xpath, "//h3[contains(text(), 'Chain requests with reusable data')]/parent::section/descendant::img").each do |el|
     puts el
@@ -25,4 +26,26 @@ When(/^I am on Appimation login page/) do
   all(:xpath, "//div[contains(@class, 'features-row')]/section").each do |el|
     puts el
   end
+=======
+  
+end
+
+Then(/^I click Try Now/) do
+  
+end
+Then(/^I enter (.*) in SignUp email/) do
+  
+end
+
+Then(/^I enter (.*) in SignUp passwords/) do
+  
+end
+
+Then(/^I enter (.*) in SignUp project name/) do
+  
+end
+
+Then(/^I cancel SignUp/) do
+  
+>>>>>>> master
 end
