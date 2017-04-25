@@ -1,6 +1,5 @@
 When(/^I am on Appimation home page/) do
   visit('/')
-<<<<<<< HEAD
   #finds image for container with specified text
   all(:xpath, "//h3[contains(text(), 'Chain requests with reusable data')]/parent::section/descendant::img").each do |el|
     puts el
