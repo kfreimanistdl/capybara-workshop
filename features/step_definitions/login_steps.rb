@@ -25,9 +25,7 @@ When(/^I am on Appimation home page/) do
   #all(:xpath, "//div[contains(@class, 'features-row')]/descendant::h3[contains(text(), 'Chain requests with reusable data')]")
   all(:xpath, "//div[contains(@class, 'features-row')]/section").each do |el|
     puts el
-  end
-=======
-  
+  end  
 end
 
 Then(/^I click Try Now/) do
@@ -47,5 +45,4 @@ end
 
 Then(/^I cancel SignUp/) do
   
->>>>>>> master
 end
