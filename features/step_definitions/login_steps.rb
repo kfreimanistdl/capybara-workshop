@@ -32,6 +32,7 @@ end
 Then(/^I click Try Now/) do
   find(:id, 'start_button').click
 end
+
 Then(/^I enter (.*) in SignUp email/) do |email|
   find(:xpath, '//div[@id = "signup"]/descendant::input[@name = "login"]').send_keys email
 end
@@ -47,4 +48,38 @@ end
 
 Then(/^I cancel SignUp/) do
   find(:xpath, '//div[@id = "signup"]/descendant::img[@class = "closecross"]').click
+end
+
+Then(/^I click landing Login/) do
+  find(:id, 'login-b').click
+end
+
+Then(/^I enter (.*) in Login email/) do |email|
+  find(:xpath, '//div[@id = "login"]/descendant::h1[contains(text(), "Welcome Back!")]')
+  find(:xpath, '//div[@id = "login"]/descendant::input[@name = "login"]').send_keys email
+end
+
+Then(/^I enter (.*) in Login password/) do |password|
+  find(:xpath, '//div[@id = "login"]/descendant::input[@name = "password"]').send_keys password
+end
+
+Then(/^I click Login/) do
+  find(:xpath, '//div[@id = "login"]/descendant::button[@class = "button button-block innerButton"]').click
+end
+
+Then(/^I have successfully logged in/) do
+  #find the email, that was used to login
+  find(:xpath, '//div[@id = "userEmail"]/descendant::span[contains(text(), "auto_apimation@mailinator.com")]')
+  #find the project name
+  find(:xpath, '//div[@id = "dropdownMenu1"]/descendant::a[contains(text(), "Capybara-automation")]')
+  #find that Test Data section exists
+  find(:id, 'testDataTitle')
+  #find that steps field exists
+  find(:id, 'steps')
+  #find that case field exists
+  find(:id, 'cases')
+  #find that set field exists
+  find(:id, 'sets')
+  #find logout button
+  find(:id, 'logoutButton')
 end
