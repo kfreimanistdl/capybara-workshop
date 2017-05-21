@@ -9,6 +9,9 @@ class HomePage < BasePage
     @input_signup_password_again = Element.new(:xpath, '//div[@id = "signup"]/descendant::input[@name = "password2"]')
     @input_signup_project_name = Element.new(:xpath, '//div[@id = "signup"]/descendant::input[@name = "project_name"]')
     @button_signup_cancel = Element.new(:xpath, '//div[@id = "signup"]/descendant::img[@class = "closecross"]')
+    @input_login_email = Element.new(:xpath, '//div[@id = "login"]/descendant::input[@name = "login"]')
+    @input_login_password = Element.new(:xpath, '//div[@id = "login"]/descendant::input[@name = "password"]')
+    @button_login_form = Element.new(:xpath, '//div[@id = "login"]/descendant::button[@class = "button button-block innerButton"]')
   end
 
   def visible?
@@ -51,6 +54,29 @@ class HomePage < BasePage
     enter_passwords password
     enter_project_name project_name
     cancel_signup
+  end
+
+  def click_login
+    @button_login.click
+  end
+
+  def enter_login_email(email)
+    @input_login_email.send_keys email
+  end
+
+  def enter_login_password(password)
+    @input_login_password.send_keys password
+  end
+
+  def click_login_form
+    @button_login_form.click
+  end
+
+  def success_login(email, password)
+    click_login
+    enter_login_email email
+    enter_login_password password
+    click_login_form
   end
 
   def load
